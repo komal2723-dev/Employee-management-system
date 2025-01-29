@@ -1,0 +1,26 @@
+{% extends 'ems/index.html' %}
+
+{% block title %}
+    Employee Management System | Update Employee
+{% endblock title %}
+
+{% block section %}
+<h1 style="text-align: center; font-weight: bolder;">Update Employee Form</h1>
+<hr>
+
+<div class="container">
+<form action="" method="post">
+    {% csrf_token %}
+    {% for item in data %}
+    <div class="mb-3">
+        {{item.label_tag}}
+        {{item}}
+        <div id="emailHelp" class="form-text">{{item.errors|striptags}}</div>
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-warning form-control">UPDATE</button>
+    </form>
+</div>
+<br>
+<hr><br>
+{% endblock section %}
