@@ -1,11 +1,12 @@
 from django import forms
-
+from django.core import validators
 from . models import Employee, Department, Role
+from django.core.exceptions import ValidationError
 
 class AddEmployeeForm(forms.ModelForm):
     class Meta:
         model = Employee
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'dept', 'salary', 'bonus', 'role', 'number', 'hire_date']
         labels = {
             'first_name': 'First Name',
             'last_name': 'Last Name',
